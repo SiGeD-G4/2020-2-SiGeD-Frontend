@@ -47,7 +47,7 @@ const NavbarComp = () => {
         console.error(error);
       }
     };
-    if (user.role === 'admin') {
+    if (user?.role === 'admin') {
       return (
 
         <Navbar expand="lg" variant="dark" clickfixed="top" fixed="top" style={styles.navbar}>
@@ -59,9 +59,13 @@ const NavbarComp = () => {
             && (
               <Navbar.Collapse id="navbar-police">
                 <Nav className="ml-auto">
+                  <Nav.Link as={Link} to="/" style={styles.navbarText}>
+                    Home
+                  </Nav.Link>
                   <Nav.Link as={Link} to="/cadastro" style={styles.navbarText}>
                     Cadastro
                   </Nav.Link>
+
                   <Nav.Link as={Link} to="/usuarios" style={styles.navbarText}>
                     Usuários
                   </Nav.Link>
@@ -114,6 +118,9 @@ const NavbarComp = () => {
           && (
             <Navbar.Collapse id="navbar-police">
               <Nav className="ml-auto">
+                <Nav.Link as={Link} to="/" style={styles.navbarText}>
+                  Home
+                </Nav.Link>
                 <Nav.Link as={Link} to="/cliente" style={styles.navbarText}>
                   Novo cliente
                 </Nav.Link>
