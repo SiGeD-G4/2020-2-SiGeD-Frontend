@@ -8,7 +8,7 @@ import {
   Input, TextareaComp, DropdownDiv, TextLabel, DateInput, Title, BottomSide,
 } from './Style';
 
-const CreateAlertModal = ({
+const UpdateAlertModal = ({
   demand, show, handleClose, startModal, changeState,
   setChangeState, user, name, description, date, client, title,
 }) => {
@@ -16,7 +16,6 @@ const CreateAlertModal = ({
   const [inputDescription, setInputDescription] = useState(description);
   const [inputDate, setInputDate] = useState(date);
   const [clientAlert, setClientAlert] = useState(client);
-  console.log(name, description, date);
   let response = null;
   const clearFields = () => {
     setInputName('');
@@ -126,4 +125,4 @@ const CreateAlertModal = ({
   );
 };
 
-export default CreateAlertModal;
+export default UpdateAlertModal;
