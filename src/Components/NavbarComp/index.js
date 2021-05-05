@@ -14,6 +14,7 @@ const NavbarComp = () => {
     user, token, setToken, startModal,
   } = useProfileUser();
   const [loading, setLoading] = useState(false);
+  const [changeState, setChangeState] = useState(false);
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -35,6 +36,10 @@ const NavbarComp = () => {
       setLoading(false);
     }
   }, [user]);
+
+  useEffect(() => {
+    getAlertsApi();
+  }, [changeState]);
 
   if (loading) {
     const logoutUser = () => {
@@ -93,6 +98,8 @@ const NavbarComp = () => {
                     show={show}
                     handleClose={handleClose}
                     alerts={alerts}
+                    changeState={changeState}
+                    setChangeState={setChangeState}
                   />
                   <Navbar.Brand as={Link} to="/login" onClick={logoutUser}>
                     <FiLogOut />
@@ -136,6 +143,8 @@ const NavbarComp = () => {
                   show={show}
                   handleClose={handleClose}
                   alerts={alerts}
+                  changeState={changeState}
+                  setChangeState={setChangeState}
                 />
                 <Navbar.Brand as={Link} to="/login" onClick={logoutUser}>
                   <FiLogOut />
